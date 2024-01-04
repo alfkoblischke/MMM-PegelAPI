@@ -98,7 +98,7 @@ Module.register("MMM-PegelAPI", {
 
     // Fuel Prices
      
-    row.appendChild(pegelValue);
+    //row.appendChild(pegelValue);
      
 
     wrapper.appendChild(row);
