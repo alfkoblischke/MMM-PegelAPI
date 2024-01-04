@@ -15,6 +15,7 @@ Module.register("MMM-PegelAPI", {
     this.loaded = false;    
     this.url = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}/W/measurements.json`;
     this.stationurl = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}.json`;
+    this.imageurl = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}/W/measurements.png?start=P20D&width=700&height=200&enableSecondaryYAxis=true`;    
     this.getData();
     setInterval(() => {
       this.getData();      
@@ -39,7 +40,7 @@ Module.register("MMM-PegelAPI", {
       this.updateDom();
     } catch (error) {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
-    };
+    }
     try {
       const stationResponse = await fetch(this.stationurl);
       const data = await stationResponse.json();            
