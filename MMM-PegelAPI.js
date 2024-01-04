@@ -12,12 +12,13 @@ Module.register("MMM-PegelAPI", {
 
   // Override start method
   start: function () {
-    this.loaded = false;
-    this.prices = {};
+    this.loaded = false;    
     this.url = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}/W/measurements.json`;
+    this.stationurl = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}.json`;
     this.getData();
     setInterval(() => {
       this.getData();
+      this.getStationData();
     }, this.config.updateInterval);
   },
 
@@ -40,6 +41,23 @@ Module.register("MMM-PegelAPI", {
       this.letzterPegelTime = data[data.length-1]['timestamp'];
       console.log(this.letzterPegel);
       console.log(this.letzterPegelTime);
+      this.loaded = true;
+      this.updateDom();
+    } catch (error) {
+      Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
+    }
+  },
+
+  getStationData: async function () {
+    try {
+      const response = await fetch(this.url);
+      const data = await response.json();            
+      this.stationName = data['longname'];
+      this.stationKm = data['km'];
+      this.stationWater = data['water']['longname'];
+      console.log(this.stationName);
+      console.log(this.stationKm);
+      console.log(this.stationWater);
       this.loaded = true;
       this.updateDom();
     } catch (error) {
@@ -91,12 +109,12 @@ Module.register("MMM-PegelAPI", {
     //status.style.color = stationData.km === "open" ? "green" : "red";
     //row.appendChild(km);
 
-    // Pegel Name
+    // Pegel Time
     var pegelTime = document.createElement("td");
     pegelTime.innerHTML = this.letzterPegelTime;
     row.appendChild(pegelTime);
 
-    // Fuel Prices
+    
      
     //row.appendChild(pegelValue);
      
