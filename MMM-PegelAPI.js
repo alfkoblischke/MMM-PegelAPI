@@ -25,7 +25,7 @@ Module.register("MMM-PegelAPI", {
     try {
       const response = await fetch(this.url);
       const data = await response.json();
-
+      console.log(data);  
       if (data.ok) {
         this.letzterPegel = data[data.length-1]['value'];
         this.letzterPegelTime = data[data.length-1]['timestamp'];
