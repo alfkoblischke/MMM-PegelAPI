@@ -61,9 +61,8 @@ Module.register("MMM-PegelAPI", {
     }
     try {
       const imageResponse = await fetch(this.imageurl);
-      const data = await imageResponse;    
-      data = data['url'];
-      this.image = data;     
+      const data = await imageResponse;          
+      this.image = data['url'];     
       console.log(this.image);
       this.loaded = true;
       this.updateDom();
