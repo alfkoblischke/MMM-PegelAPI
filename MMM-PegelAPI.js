@@ -26,7 +26,7 @@ Module.register("MMM-PegelAPI", {
       const response = await fetch(this.url);
       const data = await response.json();            
       this.letzterPegel = data[data.length-1]['value'];
-      this.letzterPegelTime = data[data.length-1]['timestamp'];
+      this.letzterPegelTime = getFormalDateTime(data[data.length-1]['timestamp']);
       console.log(this.letzterPegel);
       console.log(this.letzterPegelTime);
       this.loaded = true;
@@ -35,6 +35,17 @@ Module.register("MMM-PegelAPI", {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
     }
   },
+
+  getFormalDateTime(utcDate) {
+    const formattedUtc = utcDate.split(' ').join('T');
+    let date = new Date(formattedUtc);
+    if (date.toString() === "Invalid Date")
+      return "N/A";
+    let dateString = date.toLocaleDateString("de-DE", {month: 'long', day: 'numeric', year: 'numeric'});
+    let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+    let formattedDate = dateString + " | " + timeString;
+    return formattedDate;
+  }
 
   getHeader: function () {
     return "Meine Pegelstände";
