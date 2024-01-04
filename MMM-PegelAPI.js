@@ -26,6 +26,9 @@ Module.register("MMM-PegelAPI", {
       const response = await fetch(this.url);
       const data = await response.json();            
       this.letzterPegel1 = data[data.length-1]['value'];
+      this.letzterPegel2 = data[data.length-5]['value'];
+      this.letzterPegel3 = data[data.length-9]['value'];
+      this.letzterPegel4 = data[data.length-13]['value'];
       this.letzterPegelTime1 = data[data.length-1]['timestamp'];      
       const formattedUtc = this.letzterPegelTime1.split(' ').join('T');
       let date = new Date(formattedUtc);
@@ -148,7 +151,7 @@ Module.register("MMM-PegelAPI", {
     
     // Pegel Height
     var pegelHeight = document.createElement("td");
-    pegelHeight.innerHTML = this.letzterPegel + " cm";
+    pegelHeight.innerHTML = this.letzterPegel2 + " cm";
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
@@ -178,7 +181,7 @@ Module.register("MMM-PegelAPI", {
     
     // Pegel Height
     var pegelHeight = document.createElement("td");
-    pegelHeight.innerHTML = this.letzterPegel + " cm";
+    pegelHeight.innerHTML = this.letzterPegel3 + " cm";
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
@@ -208,7 +211,7 @@ Module.register("MMM-PegelAPI", {
     
     // Pegel Height
     var pegelHeight = document.createElement("td");
-    pegelHeight.innerHTML = this.letzterPegel + " cm";
+    pegelHeight.innerHTML = this.letzterPegel4 + " cm";
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);    
