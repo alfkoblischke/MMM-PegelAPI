@@ -14,8 +14,7 @@ Module.register("MMM-PegelAPI", {
   start: function () {
     this.loaded = false;    
     this.url = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}/W/measurements.json`;
-    this.stationurl = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}.json`;
-    this.imageurl = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}/W/measurements.png?start=P20D&width=700&height=200&enableSecondaryYAxis=true`;    
+    this.stationurl = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}.json`;    
     this.getData();
     setInterval(() => {
       this.getData();      
@@ -58,19 +57,7 @@ Module.register("MMM-PegelAPI", {
       this.updateDom();
     } catch (error) {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
-    }
-    try {
-      const imageResponse = await fetch(this.imageurl);
-      const imagedata = await imageResponse;          
-      let myData = JSON.parse(imagedata);
-      console.log(myData);
-      console.log(imagedata);
-      this.image = imagedata['url'];           
-      this.loaded = true;
-      this.updateDom();
-    } catch (error) {
-      Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
-    }
+    }    
   },
   
   getHeader: function () {
@@ -135,19 +122,7 @@ Module.register("MMM-PegelAPI", {
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
-
-    var imagerow = document.createElement("tr");
-
-    // Image
-    var imageColumn = document.createElement("td");
-    var pegelImage = document.createElement("img");
-    pegelImage.src = this.image;      
-    console.log(this.image);
-    console.log(pegelImage);
-    imageColumn.innerHTML = pegelImage; 
-    imagerow.appendChild(imageColumn);    
     
-    wrapper.appendChild(imagerow);
     
     return wrapper;
   }
