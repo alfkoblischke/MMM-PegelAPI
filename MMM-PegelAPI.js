@@ -62,8 +62,7 @@ Module.register("MMM-PegelAPI", {
     try {
       const imageResponse = await fetch(this.imageurl);
       const data = await imageResponse;          
-      this.image = data['url'];     
-      console.log(this.image);
+      this.image = data['url'];           
       this.loaded = true;
       this.updateDom();
     } catch (error) {
@@ -138,7 +137,7 @@ Module.register("MMM-PegelAPI", {
     var pegelImage = document.createElement("img");
     pegelImage.src = this.image;
     var src = document.getElementById("header");
-    //src.appendChild(pegelImage);      
+    src.appendChild(pegelImage);      
     return wrapper;
     
   }
