@@ -37,6 +37,33 @@ Module.register("MMM-PegelAPI", {
       let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
       let formattedDate = timeString;
       this.letzterPegelTime1 = formattedDate;      
+
+      this.letzterPegelTime2 = data[data.length-5]['timestamp'];      
+      const formattedUtc = this.letzterPegelTime2.split(' ').join('T');
+      let date = new Date(formattedUtc);
+      if (date.toString() === "Invalid Date")
+        return "N/A";      
+      let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+      let formattedDate = timeString;
+      this.letzterPegelTime2 = formattedDate;      
+
+      this.letzterPegelTime3 = data[data.length-1]['timestamp'];      
+      const formattedUtc = this.letzterPegelTime3.split(' ').join('T');
+      let date = new Date(formattedUtc);
+      if (date.toString() === "Invalid Date")
+        return "N/A";      
+      let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+      let formattedDate = timeString;
+      this.letzterPegelTime3 = formattedDate;      
+
+      this.letzterPegelTime4 = data[data.length-1]['timestamp'];      
+      const formattedUtc = this.letzterPegelTime4.split(' ').join('T');
+      let date = new Date(formattedUtc);
+      if (date.toString() === "Invalid Date")
+        return "N/A";      
+      let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+      let formattedDate = timeString;
+      this.letzterPegelTime4 = formattedDate;      
       this.loaded = true;
       this.updateDom();
     } catch (error) {
@@ -88,7 +115,7 @@ Module.register("MMM-PegelAPI", {
     kmHeader.innerHTML = "Km";
     headerRow.appendChild(kmHeader);
     var timeHeader = document.createElement("th");
-    timeHeader.innerHTML = "Datum";
+    timeHeader.innerHTML = "Uhrzeit";
     headerRow.appendChild(timeHeader);
     var pegelHeader = document.createElement("th");
     pegelHeader.innerHTML = "Pegel";
