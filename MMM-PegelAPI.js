@@ -133,15 +133,16 @@ Module.register("MMM-PegelAPI", {
 
     wrapper.appendChild(row);
 
-    //var row = document.createElement("tr");
+    var imagerow = document.createElement("tr");
 
     // Image
     var imageColumn = document.createElement("td");
     var pegelImage = document.createElement("img");
     pegelImage.src = this.image;      
-    row.appendChild(pegelImage);
-    imageColumn.appendChild(pegelImage);
-    wrapper.appendChild(row);
+    imageColumn.innerHTML = pegelImage;    
+    imagerow.appendChild(imageColumn);
+    
+    wrapper.appendChild(imagerow);
     
     return wrapper;
   }
