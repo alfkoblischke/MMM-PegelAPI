@@ -47,7 +47,7 @@ Module.register("MMM-PegelAPI", {
       let formattedDate = timeString;
       this.letzterPegelTime2 = formattedDate;      
 
-      this.letzterPegelTime3 = data[data.length-1]['timestamp'];      
+      this.letzterPegelTime3 = data[data.length-9]['timestamp'];      
       const formattedUtc = this.letzterPegelTime3.split(' ').join('T');
       let date = new Date(formattedUtc);
       if (date.toString() === "Invalid Date")
@@ -56,7 +56,7 @@ Module.register("MMM-PegelAPI", {
       let formattedDate = timeString;
       this.letzterPegelTime3 = formattedDate;      
 
-      this.letzterPegelTime4 = data[data.length-1]['timestamp'];      
+      this.letzterPegelTime4 = data[data.length-13]['timestamp'];      
       const formattedUtc = this.letzterPegelTime4.split(' ').join('T');
       let date = new Date(formattedUtc);
       if (date.toString() === "Invalid Date")
