@@ -121,7 +121,7 @@ Module.register("MMM-PegelAPI", {
     
     // Pegel Height
     var pegelHeight = document.createElement("td");
-    pegelHeight.innerHTML = this.letzterPegel + " cm";
+    pegelHeight.innerHTML = this.letzterPegel1 + " cm";
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
