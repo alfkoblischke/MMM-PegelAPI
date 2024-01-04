@@ -1,4 +1,4 @@
-Module.register("MMM-PJokeAPI", {
+Module.register("MMM-PegelAPI", {
     defaults: {
         category: "Programming",
         fetchInterval: 10 * 1000
@@ -8,12 +8,12 @@ Module.register("MMM-PJokeAPI", {
             this.file('style.css')
         ]
     },
-    joke: null,
+    pegel: null,
     notificationReceived(notification, payload, sender) {
         if (notification === 'MODULE_DOM_CREATED') {
-            this.getJoke();
+            this.getPegel();
             setInterval(() => {
-                this.getJoke()
+                this.getPegel()
             }, this.config.fetchInterval);
         }
     },
@@ -27,30 +27,30 @@ Module.register("MMM-PJokeAPI", {
         return wrapper;
     },
     setupHTMLStructure(wrapper) {
-        if (this.joke.type === 'single') {
+        if (this.pegel.type === 'single') {
 
-            const joke = document.createElement("h1");
-            joke.className = "bright medium light fadeInJoke";
-            joke.innerHTML = this.joke.joke;
-            wrapper.appendChild(joke);
+            const pegel = document.createElement("h1");
+            pegel.className = "bright medium light fadeInPegel";
+            pegel.innerHTML = this.pegel.pegel;
+            wrapper.appendChild(pegel);
 
-        } else if (this.joke.type === 'twopart') {
+        } else if (this.pegel.type === 'twopart') {
 
             const setup = document.createElement("h1");
-            setup.className = "bright medium light no-wrap fadeInJoke";
-            setup.innerHTML = this.joke.setup;
+            setup.className = "bright medium light no-wrap fadeInPegel";
+            setup.innerHTML = this.pegel.setup;
             wrapper.appendChild(setup);
 
             const punchline = document.createElement("h2");
             punchline.className = "bright small light fadeInPunchline";
-            punchline.innerHTML = this.joke.delivery;
+            punchline.innerHTML = this.pegel.delivery;
             wrapper.appendChild(punchline);
         }
     },
-    getJoke() {
-        fetch(`https://sv443.net/jokeapi/v2/joke/${this.config.category}`).then((response) => {
-            response.json().then((joke) => {
-                this.joke = joke;
+    getPegel() {
+        fetch(`https://pegelonline.wsv.de/webservices/rest-api/v2/stations/a6ee8177-107b-47dd-bcfd-30960ccc6e9c/W/measurements.json`).then((response) => {
+            response.json().then((pegel) => {
+                this.pegel = pegel;
                 this.updateDom();
             });
         });
