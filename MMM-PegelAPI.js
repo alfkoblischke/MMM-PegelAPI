@@ -78,28 +78,31 @@ Module.register("MMM-PegelAPI", {
     wrapper.appendChild(headerRow);
 
     // Data Rows
-    for (var pegel in this.pegel) {
-      var pegelData = this.pegel[pegelId];
-      var row = document.createElement("tr");
+    var row = document.createElement("tr");
 
-      // Station Name
-      var stationName = document.createElement("td");
-      stationName.innerHTML = this.config.pegelNames[pegelId];
-      row.appendChild(pegelnName);
+    // Pegel Name
+    var pegelName = document.createElement("td");
+    pegelName.innerHTML = this.letzterPegel;
+    row.appendChild(pegelName);
 
-      // Status (open or closed)
-      var status = document.createElement("td");
-      status.innerHTML = stationData.status === "open" ? "geöffnet ✓" : "geschlossen ✗";
-      status.style.color = stationData.status === "open" ? "green" : "red";
-      row.appendChild(status);
+    // Status (open or closed)
+    var km = document.createElement("td");
+    status.innerHTML = stationData.km === "open" ? "geöffnet ✓" : "geschlossen ✗";
+    status.style.color = stationData.km === "open" ? "green" : "red";
+    row.appendChild(km);
 
-      // Fuel Prices
+    // Pegel Name
+    var pegelTime = document.createElement("td");
+    pegelTime.innerHTML = this.letzterPegelTime;
+    row.appendChild(pegelTime);
+
+    // Fuel Prices
      
-      row.appendChild(pegelValue);
+    row.appendChild(pegelValue);
      
 
-      wrapper.appendChild(row);
-    }
+    wrapper.appendChild(row);
+    
 
     return wrapper;
   }
