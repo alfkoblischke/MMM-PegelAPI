@@ -133,11 +133,11 @@ Module.register("MMM-PegelAPI", {
 
     wrapper.appendChild(row);
 
-    // Image
+    // Image    
     var pegelImage = document.createElement("img");
     pegelImage.src = this.image;
     //var src = document.getElementById("header");
-    row.appendChild(pegelImage);      
+    pegelImage.appendChild(pegelImage);      
     
     return wrapper;
     
