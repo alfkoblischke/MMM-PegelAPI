@@ -25,15 +25,11 @@ Module.register("MMM-PegelAPI", {
     try {
       const response = await fetch(this.url);
       const data = await response.json();
-      console.log(data);  
-      if (data.ok) {
-        this.letzterPegel = data[data.length-1]['value'];
-        this.letzterPegelTime = data[data.length-1]['timestamp'];
-        this.loaded = true;
-        this.updateDom();
-      } else {
-        Log.error("Fehler beim Abrufen der Daten von Tankerkoenig API.");
-      }
+      console.log(data);        
+      this.letzterPegel = data[data.length-1]['value'];
+      this.letzterPegelTime = data[data.length-1]['timestamp'];
+      this.loaded = true;
+      this.updateDom();
     } catch (error) {
       Log.error(`Fehler beim Abrufen der Daten von Tankerkoenig API: ${error}`);
     }
