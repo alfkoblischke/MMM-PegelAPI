@@ -96,27 +96,25 @@ Module.register("MMM-PegelAPI", {
 
     // Pegel Name
     var pegelName = document.createElement("td");
-    pegelName.innerHTML = this.letzterPegel;
+    pegelName.innerHTML = this.stationName;
     row.appendChild(pegelName);
 
-    // Status (open or closed)
-    //var km = document.createElement("td");
-    //status.innerHTML = stationData.km === "open" ? "geöffnet ✓" : "geschlossen ✗";
-    //status.style.color = stationData.km === "open" ? "green" : "red";
-    //row.appendChild(km);
+     // Pegel Km
+    var pegelKm = document.createElement("td");
+    pegelKm.innerHTML = this.stationKm;
+    row.appendChild(pegelKm);
 
     // Pegel Time
     var pegelTime = document.createElement("td");
     pegelTime.innerHTML = this.letzterPegelTime;
     row.appendChild(pegelTime);
-
     
-     
-    //row.appendChild(pegelValue);
-     
+    // Pegel Height
+    var pegelHeight = document.createElement("td");
+    pegelHeight.innerHTML = this.letzterPegel;
+    row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
-    
 
     return wrapper;
   }
