@@ -152,7 +152,66 @@ Module.register("MMM-PegelAPI", {
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
+
+    // Data Rows
+    var row = document.createElement("tr");
+
+    // Pegel Name
+    var pegelName = document.createElement("td");
+    pegelName.innerHTML = this.stationName;
+    row.appendChild(pegelName);
+
+    // Water Name
+    var waterName = document.createElement("td");
+    waterName.innerHTML = this.stationWater;    
+    row.appendChild(waterName);
+
+     // Pegel Km
+    var pegelKm = document.createElement("td");
+    pegelKm.innerHTML = this.stationKm;
+    row.appendChild(pegelKm);
+
+    // Pegel Time
+    var pegelTime = document.createElement("td");
+    pegelTime.innerHTML = this.letzterPegelTime;
+    row.appendChild(pegelTime);
     
+    // Pegel Height
+    var pegelHeight = document.createElement("td");
+    pegelHeight.innerHTML = this.letzterPegel + " cm";
+    row.appendChild(pegelHeight);
+
+    wrapper.appendChild(row);
+
+    // Data Rows
+    var row = document.createElement("tr");
+
+    // Pegel Name
+    var pegelName = document.createElement("td");
+    pegelName.innerHTML = this.stationName;
+    row.appendChild(pegelName);
+
+    // Water Name
+    var waterName = document.createElement("td");
+    waterName.innerHTML = this.stationWater;    
+    row.appendChild(waterName);
+
+     // Pegel Km
+    var pegelKm = document.createElement("td");
+    pegelKm.innerHTML = this.stationKm;
+    row.appendChild(pegelKm);
+
+    // Pegel Time
+    var pegelTime = document.createElement("td");
+    pegelTime.innerHTML = this.letzterPegelTime;
+    row.appendChild(pegelTime);
+    
+    // Pegel Height
+    var pegelHeight = document.createElement("td");
+    pegelHeight.innerHTML = this.letzterPegel + " cm";
+    row.appendChild(pegelHeight);
+
+    wrapper.appendChild(row);
     
     return wrapper;
   }
