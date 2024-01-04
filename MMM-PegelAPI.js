@@ -132,11 +132,13 @@ Module.register("MMM-PegelAPI", {
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
+
+    // Image
+    var pegelImage = document.createElement("img");
+    pegelImage.src = this.image;
+    var src = document.getElementById("header");
+    src.appendChild(pegelImage);      
     return wrapper;
-    
-    var image = document.createElement("img");
-    wrapper.className = "img";
-    return image;
     
   }
 });
