@@ -33,10 +33,9 @@ Module.register("MMM-PegelAPI", {
       const formattedUtc = this.letzterPegelTime1.split(' ').join('T');
       let date = new Date(formattedUtc);
       if (date.toString() === "Invalid Date")
-        return "N/A";
-      let dateString = date.toLocaleDateString("de-DE", {month: 'long', day: 'numeric', year: 'numeric'});
+        return "N/A";      
       let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
-      let formattedDate = dateString + " | " + timeString;
+      let formattedDate = timeString;
       this.letzterPegelTime1 = formattedDate;      
       this.loaded = true;
       this.updateDom();
