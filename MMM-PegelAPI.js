@@ -39,6 +39,14 @@ Module.register("MMM-PegelAPI", {
       this.letzterPegel = data[data.length-1]['value'];
       this.letzterPegelTime = data[data.length-1]['timestamp'];
       this.letzterPegelTime = getFormalDateTime(this.letzterPegelTime);
+      const formattedUtc = this.letzterPegelTime.split(' ').join('T');
+      let date = new Date(formattedUtc);
+      if (date.toString() === "Invalid Date")
+        return "N/A";
+      let dateString = date.toLocaleDateString("de-DE", {month: 'long', day: 'numeric', year: 'numeric'});
+      let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+      let formattedDate = dateString + " | " + timeString;
+      this.letzterPegelTime = formattedDate;      
       this.loaded = true;
       this.updateDom();
     } catch (error) {
