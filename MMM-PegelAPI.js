@@ -32,6 +32,11 @@ Module.register("MMM-PegelAPI", {
     return formattedDate;
   },
 
+  capitalize(str) {
+      str = str.toLowerCase();
+      return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+  },
+
   getData: async function () {
     try {
       const response = await fetch(this.url);
@@ -48,7 +53,7 @@ Module.register("MMM-PegelAPI", {
       const data = await stationResponse.json();            
       this.stationName = data['longname'];
       this.stationKm = data['km'];
-      this.stationWater = data['water']['longname'];
+      this.stationWater = capitalize(data['water']['longname']);
       console.log(this.stationName);
       console.log(this.stationKm);
       console.log(this.stationWater);
