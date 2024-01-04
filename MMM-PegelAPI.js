@@ -44,7 +44,7 @@ Module.register("MMM-PegelAPI", {
       this.updateDom();
     } catch (error) {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
-    },  
+    },
     try {
       const stationResponse = await fetch(this.stationurl);
       const data = await stationResponse.json();            
