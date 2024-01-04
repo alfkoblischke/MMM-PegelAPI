@@ -1,14 +1,11 @@
-.fadeInPegel {
-    animation-name: fadeIn;
-    animation-duration: 1s;
-    animation-fill-mode: both;
+/* PegelAPI MagicMirror² CSS */
+.pegel-table {
+  border-collapse: collapse;
 }
-.fadeInPunchline {
-    animation-name: fadeIn;
-    animation-duration: 7s;
-    animation-fill-mode: both;
-}
-@keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+
+.pegel-table th,
+.pegel-table td {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: left;
 }
