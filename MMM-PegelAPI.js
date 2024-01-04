@@ -20,7 +20,7 @@ Module.register("MMM-PegelAPI", {
     getDom() {
         const wrapper = document.createElement("div");
 
-        if(this.joke === null) return wrapper;
+        if(this.pegel === null) return wrapper;
 
         this.setupHTMLStructure(wrapper);
 
