@@ -93,7 +93,7 @@ Module.register("MMM-PegelAPI", {
     headerRow.appendChild(pegelHeader);
     wrapper.appendChild(headerRow);
 
-    // Data Rows
+    // 1 Data Row
     var row = document.createElement("tr");
 
     // Pegel Name
@@ -123,7 +123,7 @@ Module.register("MMM-PegelAPI", {
 
     wrapper.appendChild(row);
 
-    // Data Rows
+    // 2 Data Row
     var row = document.createElement("tr");
 
     // Pegel Name
@@ -153,7 +153,7 @@ Module.register("MMM-PegelAPI", {
 
     wrapper.appendChild(row);
 
-    // Data Rows
+    // 3 Data Row
     var row = document.createElement("tr");
 
     // Pegel Name
@@ -183,7 +183,7 @@ Module.register("MMM-PegelAPI", {
 
     wrapper.appendChild(row);
 
-    // Data Rows
+    // 4 Data Row
     var row = document.createElement("tr");
 
     // Pegel Name
@@ -211,8 +211,7 @@ Module.register("MMM-PegelAPI", {
     pegelHeight.innerHTML = this.letzterPegel + " cm";
     row.appendChild(pegelHeight);
 
-    wrapper.appendChild(row);
-    
+    wrapper.appendChild(row);    
     return wrapper;
   }
 });
