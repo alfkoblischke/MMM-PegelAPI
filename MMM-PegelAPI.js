@@ -10,17 +10,6 @@ Module.register("MMM-PegelAPI", {
     return ["style.css"];
   },
 
-  // Override start method
-  start: function () {
-    this.loaded = false;    
-    this.url = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}/W/measurements.json`;
-    this.stationurl = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}.json`;
-    this.getData();
-    setInterval(() => {
-      this.getData();      
-    }, this.config.updateInterval);
-  },
-
   getFormalDateTime: function (utcDate) {
     const formattedUtc = utcDate.split(' ').join('T');
     let date = new Date(formattedUtc);
@@ -32,12 +21,24 @@ Module.register("MMM-PegelAPI", {
     return formattedDate;
   },
 
+  // Override start method
+  start: function () {
+    this.loaded = false;    
+    this.url = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}/W/measurements.json`;
+    this.stationurl = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}.json`;
+    this.getData();
+    setInterval(() => {
+      this.getData();      
+    }, this.config.updateInterval);
+  },
+
   getData: async function () {
     try {
       const response = await fetch(this.url);
       const data = await response.json();            
       this.letzterPegel = data[data.length-1]['value'];
-      this.letzterPegelTime = data[data.length-1]['timestamp'];     
+      this.letzterPegelTime = data[data.length-1]['timestamp'];
+      this.letzterPegelTime = getFormalDateTime(this.letzterPegelTime);
       this.loaded = true;
       this.updateDom();
     } catch (error) {
