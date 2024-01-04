@@ -28,7 +28,7 @@ Module.register("MMM-PegelAPI", {
       this.letzterPegel = data[data.length-1]['value'];
       this.letzterPegelTime = data[data.length-1]['timestamp'];
       console.log(this.letzterPegel);
-      consule.log(this.letzterPegelTime);
+      console.log(this.letzterPegelTime);
       this.loaded = true;
       this.updateDom();
     } catch (error) {
