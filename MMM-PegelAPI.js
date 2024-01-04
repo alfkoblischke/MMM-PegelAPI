@@ -86,10 +86,10 @@ Module.register("MMM-PegelAPI", {
     row.appendChild(pegelName);
 
     // Status (open or closed)
-    var km = document.createElement("td");
-    status.innerHTML = stationData.km === "open" ? "geöffnet ✓" : "geschlossen ✗";
-    status.style.color = stationData.km === "open" ? "green" : "red";
-    row.appendChild(km);
+    //var km = document.createElement("td");
+    //status.innerHTML = stationData.km === "open" ? "geöffnet ✓" : "geschlossen ✗";
+    //status.style.color = stationData.km === "open" ? "green" : "red";
+    //row.appendChild(km);
 
     // Pegel Name
     var pegelTime = document.createElement("td");
