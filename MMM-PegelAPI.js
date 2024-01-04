@@ -53,7 +53,7 @@ Module.register("MMM-PegelAPI", {
       const data = await stationResponse.json();            
       this.stationName = data['longname'];
       this.stationKm = data['km'];
-      this.stationWater = capitalize(data['water']['longname']);
+      this.stationWater = data['water']['longname'];
       console.log(this.stationName);
       console.log(this.stationKm);
       console.log(this.stationWater);
