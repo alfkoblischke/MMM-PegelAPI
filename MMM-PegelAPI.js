@@ -132,14 +132,15 @@ Module.register("MMM-PegelAPI", {
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
-    
-    return wrapper;
 
-    // Image    
+    var row = document.createElement("tr");
+
+    // Image
+    var imageColumn = document.createElement("td");
     var pegelImage = document.createElement("img");
     pegelImage.src = this.image;      
-    return pegelImage;
+    imageColumn.appendChild(pegelImage);
     
-    
+    return wrapper;
   }
 });
