@@ -107,8 +107,8 @@ Module.register("MMM-PegelAPI", {
 
     // Water Name
     var waterName = document.createElement("td");
-    waterName.innerHTML = capitalize(this.stationWater);
-    row.appendChild(waterName);
+    waterName.innerHTML = this.stationWater;
+    row.appendChild(capitalize(waterName));
 
      // Pegel Km
     var pegelKm = document.createElement("td");
