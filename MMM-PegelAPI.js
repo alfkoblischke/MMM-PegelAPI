@@ -8,18 +8,7 @@ Module.register("MMM-PegelAPI", {
 
   getStyles: function () {
     return ["style.css"];
-  },
-
-  getFormalDateTime: function (utcDate) {
-    const formattedUtc = utcDate.split(' ').join('T');
-    let date = new Date(formattedUtc);
-    if (date.toString() === "Invalid Date")
-      return "N/A";
-    let dateString = date.toLocaleDateString("de-DE", {month: 'long', day: 'numeric'});
-    let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
-    let formattedDate = dateString + " | " + timeString;
-    return formattedDate;
-  },
+  },  
 
   // Override start method
   start: function () {
@@ -114,10 +103,7 @@ Module.register("MMM-PegelAPI", {
 
     // Water Name
     var waterName = document.createElement("td");
-    waterName.innerHTML = this.stationWater;
-    
-      
-    
+    waterName.innerHTML = this.stationWater;    
     row.appendChild(waterName);
 
      // Pegel Km
