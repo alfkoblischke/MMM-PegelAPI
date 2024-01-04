@@ -37,8 +37,7 @@ Module.register("MMM-PegelAPI", {
       const response = await fetch(this.url);
       const data = await response.json();            
       this.letzterPegel = data[data.length-1]['value'];
-      this.letzterPegelTime = data[data.length-1]['timestamp'];
-      this.letzterPegelTime = getFormalDateTime(this.letzterPegelTime);
+      this.letzterPegelTime = data[data.length-1]['timestamp'];      
       const formattedUtc = this.letzterPegelTime.split(' ').join('T');
       let date = new Date(formattedUtc);
       if (date.toString() === "Invalid Date")
