@@ -135,7 +135,7 @@ Module.register("MMM-PegelAPI", {
 
     // Image    
     var pegelImage = document.createElement("img");
-    pegelImage.src = this.image;      
+    wrapper.pegelImage.src = this.image;      
     
     return wrapper;
     
