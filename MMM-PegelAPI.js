@@ -107,8 +107,8 @@ Module.register("MMM-PegelAPI", {
 
     // Water Name
     var waterName = document.createElement("td");
-    waterName.innerHTML = this.stationWater;
-    watername = waterName.toLowerCase();
+    waterName.innerHTML = this.stationWater.toLowerCase();
+    
       
     
     row.appendChild(waterName);
