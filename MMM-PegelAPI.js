@@ -78,10 +78,7 @@ Module.register("MMM-PegelAPI", {
       this.stationKm = data['km'];
       this.stationWater = data['water']['longname'];
       this.stationWater = this.stationWater.toLowerCase();
-      this.stationWater = `${this.stationWater.charAt(0).toUpperCase()}${this.stationWater.slice(1)}`;
-      console.log(this.stationName);
-      console.log(this.stationKm);
-      console.log(this.stationWater);
+      this.stationWater = `${this.stationWater.charAt(0).toUpperCase()}${this.stationWater.slice(1)}`;      
       this.loaded = true;
       this.updateDom();
     } catch (error) {
