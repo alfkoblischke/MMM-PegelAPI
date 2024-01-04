@@ -47,10 +47,12 @@ Module.register("MMM-PegelAPI", {
       const stationResponse = await fetch(this.stationurl);
       const data = await stationResponse.json();            
       this.stationName = data['longname'];
+      this.stationName = this.stationName.toLowerCase();
+      this.stationName = `${this.stationName.charAt(0).toUpperCase()}${this.stationName.slice(1)}`
       this.stationKm = data['km'];
       this.stationWater = data['water']['longname'];
       this.stationWater = this.stationWater.toLowerCase();
-      this.stationWater = `${this.stationWater.charAt(0).toUpperCase()}${this.stationWater.slice(1)}`
+      this.stationWater = `${this.stationWater.charAt(0).toUpperCase()}${this.stationWater.slice(1)}`;
       console.log(this.stationName);
       console.log(this.stationKm);
       console.log(this.stationWater);
