@@ -21,6 +21,17 @@ Module.register("MMM-PegelAPI", {
     }, this.config.updateInterval);
   },
 
+  getFormalDateTime: function(utcDate) {
+    const formattedUtc = utcDate.split(' ').join('T');
+    let date = new Date(formattedUtc);
+    if (date.toString() === "Invalid Date")
+      return "N/A";
+    let dateString = date.toLocaleDateString("de-DE", {month: 'long', day: 'numeric', year: 'numeric'});
+    let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+    let formattedDate = dateString + " | " + timeString;
+    return formattedDate;
+  },
+
   getData: async function () {
     try {
       const response = await fetch(this.url);
@@ -35,18 +46,7 @@ Module.register("MMM-PegelAPI", {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
     }
   },
-
-  getFormalDateTime: function(utcDate) {
-    const formattedUtc = utcDate.split(' ').join('T');
-    let date = new Date(formattedUtc);
-    if (date.toString() === "Invalid Date")
-      return "N/A";
-    let dateString = date.toLocaleDateString("de-DE", {month: 'long', day: 'numeric', year: 'numeric'});
-    let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
-    let formattedDate = dateString + " | " + timeString;
-    return formattedDate;
-  },
-
+  
   getHeader: function () {
     return "Meine Pegelstände";
   },
