@@ -79,7 +79,7 @@ Module.register("MMM-PegelAPI", {
     stationNameHeader.innerHTML = "Ort";
     headerRow.appendChild(stationNameHeader);
     var waterNameHeader = document.createElement("th");
-    waterNameHeader.innerHTML = "Fluß";
+    waterNameHeader.innerHTML = "Fluss";
     headerRow.appendChild(waterNameHeader);
     var kmHeader = document.createElement("th");
     kmHeader.innerHTML = "Km";
@@ -99,6 +99,11 @@ Module.register("MMM-PegelAPI", {
     var pegelName = document.createElement("td");
     pegelName.innerHTML = this.stationName;
     row.appendChild(pegelName);
+
+    // Water Name
+    var waterName = document.createElement("td");
+    waterName.innerHTML = this.stationWater;
+    row.appendChild(waterName);
 
      // Pegel Km
     var pegelKm = document.createElement("td");
