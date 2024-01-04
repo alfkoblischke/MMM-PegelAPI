@@ -139,6 +139,7 @@ Module.register("MMM-PegelAPI", {
     var imageColumn = document.createElement("td");
     var pegelImage = document.createElement("img");
     pegelImage.src = this.image;      
+    console.log(pegelImage);
     imageColumn.innerHTML = pegelImage; 
     imagerow.appendChild(imageColumn);    
     
