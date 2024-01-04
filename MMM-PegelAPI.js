@@ -36,7 +36,7 @@ Module.register("MMM-PegelAPI", {
     }
   },
 
-  getFormalDateTime(utcDate) {
+  getFormalDateTime: function(utcDate) {
     const formattedUtc = utcDate.split(' ').join('T');
     let date = new Date(formattedUtc);
     if (date.toString() === "Invalid Date")
@@ -45,7 +45,7 @@ Module.register("MMM-PegelAPI", {
     let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
     let formattedDate = dateString + " | " + timeString;
     return formattedDate;
-  }
+  },
 
   getHeader: function () {
     return "Meine Pegelstände";
