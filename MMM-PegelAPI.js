@@ -39,31 +39,31 @@ Module.register("MMM-PegelAPI", {
       this.letzterPegelTime1 = formattedDate;      
 
       this.letzterPegelTime2 = data[data.length-5]['timestamp'];      
-      const formattedUtc = this.letzterPegelTime2.split(' ').join('T');
-      let date = new Date(formattedUtc);
-      if (date.toString() === "Invalid Date")
+      const formattedUtc2 = this.letzterPegelTime2.split(' ').join('T');
+      let date2 = new Date(formattedUtc2);
+      if (date2.toString() === "Invalid Date")
         return "N/A";      
-      let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
-      let formattedDate = timeString;
-      this.letzterPegelTime2 = formattedDate;      
+      let timeString2 = date2.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+      let formattedDate2 = timeString2;
+      this.letzterPegelTime2 = formattedDate2;
 
       this.letzterPegelTime3 = data[data.length-9]['timestamp'];      
-      const formattedUtc = this.letzterPegelTime3.split(' ').join('T');
-      let date = new Date(formattedUtc);
-      if (date.toString() === "Invalid Date")
+      const formattedUtc3 = this.letzterPegelTime3.split(' ').join('T');
+      let date3 = new Date(formattedUtc3);
+      if (date3.toString() === "Invalid Date")
         return "N/A";      
-      let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
-      let formattedDate = timeString;
-      this.letzterPegelTime3 = formattedDate;      
+      let timeString3 = date3.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+      let formattedDate3 = timeString3;
+      this.letzterPegelTime3 = formattedDate3;
 
       this.letzterPegelTime4 = data[data.length-13]['timestamp'];      
-      const formattedUtc = this.letzterPegelTime4.split(' ').join('T');
-      let date = new Date(formattedUtc);
-      if (date.toString() === "Invalid Date")
+      const formattedUtc4 = this.letzterPegelTime4.split(' ').join('T');
+      let date4 = new Date(formattedUtc4);
+      if (date4.toString() === "Invalid Date")
         return "N/A";      
-      let timeString = date.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
-      let formattedDate = timeString;
-      this.letzterPegelTime4 = formattedDate;      
+      let timeString4 = date4.toLocaleTimeString("de-DE", {hour: 'numeric', minute: 'numeric', hour12: false});
+      let formattedDate4 = timeString4;
+      this.letzterPegelTime4 = formattedDate4;      
       this.loaded = true;
       this.updateDom();
     } catch (error) {
@@ -172,7 +172,7 @@ Module.register("MMM-PegelAPI", {
 
     // Pegel Time
     var pegelTime = document.createElement("td");
-    pegelTime.innerHTML = this.letzterPegelTime;
+    pegelTime.innerHTML = this.letzterPegelTime2;
     row.appendChild(pegelTime);
     
     // Pegel Height
@@ -202,7 +202,7 @@ Module.register("MMM-PegelAPI", {
 
     // Pegel Time
     var pegelTime = document.createElement("td");
-    pegelTime.innerHTML = this.letzterPegelTime;
+    pegelTime.innerHTML = this.letzterPegelTime3;
     row.appendChild(pegelTime);
     
     // Pegel Height
@@ -232,7 +232,7 @@ Module.register("MMM-PegelAPI", {
 
     // Pegel Time
     var pegelTime = document.createElement("td");
-    pegelTime.innerHTML = this.letzterPegelTime;
+    pegelTime.innerHTML = this.letzterPegelTime4;
     row.appendChild(pegelTime);
     
     // Pegel Height
