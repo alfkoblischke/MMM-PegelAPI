@@ -24,14 +24,13 @@ Module.register("MMM-PegelAPI", {
   getData: async function () {
     try {
       const response = await fetch(this.url);
-      const data = await response.json();
-      console.log(data);        
+      const data = await response.json();            
       this.letzterPegel = data[data.length-1]['value'];
       this.letzterPegelTime = data[data.length-1]['timestamp'];
       this.loaded = true;
       this.updateDom();
     } catch (error) {
-      Log.error(`Fehler beim Abrufen der Daten von Tankerkoenig API: ${error}`);
+      Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
     }
   },
 
@@ -41,7 +40,7 @@ Module.register("MMM-PegelAPI", {
 
   getDom: function () {
     var wrapper = document.createElement("table");
-    wrapper.className = "small tanker-table";
+    wrapper.className = "small pegel-table";
 
     if (!this.loaded) {
       wrapper.innerHTML = "Lade Pegelstände...";
@@ -54,9 +53,15 @@ Module.register("MMM-PegelAPI", {
     var stationNameHeader = document.createElement("th");
     stationNameHeader.innerHTML = "Ort";
     headerRow.appendChild(stationNameHeader);
-    var statusHeader = document.createElement("th");
-    statusHeader.innerHTML = "Status";
+    var kmHeader = document.createElement("th");
+    statusHeader.innerHTML = "Km";
     headerRow.appendChild(statusHeader);
+    var timeHeader = document.createElement("th");
+    timeHeader.innerHTML = "Datum";
+    headerRow.appendChild(timeHeader);
+    var pegelHeader = document.createElement("th");
+    pegelHeader.innerHTML = "Pegel";
+    headerRow.appendChild(pegelHeader);
     wrapper.appendChild(headerRow);
 
     // Data Rows
