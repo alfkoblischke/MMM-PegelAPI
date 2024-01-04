@@ -59,6 +59,15 @@ Module.register("MMM-PegelAPI", {
     } catch (error) {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
     }
+    try {
+      const imageResponse = await fetch(this.imageurl);
+      const data = await imageResponse;            
+      this.image = data;      
+      this.loaded = true;
+      this.updateDom();
+    } catch (error) {
+      Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
+    }
   },
   
   getHeader: function () {
@@ -124,6 +133,8 @@ Module.register("MMM-PegelAPI", {
 
     wrapper.appendChild(row);
 
+    wrapper = document.createElement("img");
+    wrapper.className = "img";
     return wrapper;
   }
 });
