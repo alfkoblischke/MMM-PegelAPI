@@ -21,7 +21,7 @@ Module.register("MMM-PegelAPI", {
     }, this.config.updateInterval);
   },
 
-  getFormalDateTime: function(utcDate) {
+  getFormalDateTime: function (utcDate) {
     const formattedUtc = utcDate.split(' ').join('T');
     let date = new Date(formattedUtc);
     if (date.toString() === "Invalid Date")
