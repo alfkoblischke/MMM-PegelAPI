@@ -133,7 +133,7 @@ Module.register("MMM-PegelAPI", {
 
     wrapper.appendChild(row);
 
-    var row = document.createElement("tr");
+    //var row = document.createElement("tr");
 
     // Image
     var imageColumn = document.createElement("td");
