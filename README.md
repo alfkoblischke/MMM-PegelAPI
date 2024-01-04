@@ -2,11 +2,11 @@
 This is a module for `MagicMirror²`; the purpose of the module is to show you jokes from the JokeAPI.
 
 ## Installation
-1.  Clone this repository into your MagicMirror `modules` folder.
+1.  Navigate into your MagicMirror's modules folder and execute git clone https://github.com/alfkoblischke/MMM-PegelAPI.git. A new folder will appear navigate into it.
 2.  Edit your configuration file under `config/config.js` with the following configuration.
 ```
 {
-    module: 'MMM-JokeAPI',
+    module: 'MMM-PegelAPI',
     position: 'middle_center',
     config: {
         category: "Programming"
