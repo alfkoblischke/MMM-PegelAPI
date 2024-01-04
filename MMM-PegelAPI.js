@@ -54,8 +54,8 @@ Module.register("MMM-PegelAPI", {
     stationNameHeader.innerHTML = "Ort";
     headerRow.appendChild(stationNameHeader);
     var kmHeader = document.createElement("th");
-    statusHeader.innerHTML = "Km";
-    headerRow.appendChild(statusHeader);
+    kmHeader.innerHTML = "Km";
+    headerRow.appendChild(kmHeader);
     var timeHeader = document.createElement("th");
     timeHeader.innerHTML = "Datum";
     headerRow.appendChild(timeHeader);
