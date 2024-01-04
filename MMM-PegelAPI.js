@@ -1,4 +1,4 @@
-Module.register("MMM-JokeAPI", {
+Module.register("MMM-PJokeAPI", {
     defaults: {
         category: "Programming",
         fetchInterval: 10 * 1000
