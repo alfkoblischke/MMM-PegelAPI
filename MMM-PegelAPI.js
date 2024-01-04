@@ -37,9 +37,7 @@ Module.register("MMM-PegelAPI", {
       const response = await fetch(this.url);
       const data = await response.json();            
       this.letzterPegel = data[data.length-1]['value'];
-      this.letzterPegelTime = data[data.length-1]['timestamp'];
-      console.log(this.letzterPegel);
-      console.log(this.letzterPegelTime);
+      this.letzterPegelTime = data[data.length-1]['timestamp'];     
       this.loaded = true;
       this.updateDom();
     } catch (error) {
@@ -80,6 +78,9 @@ Module.register("MMM-PegelAPI", {
     var stationNameHeader = document.createElement("th");
     stationNameHeader.innerHTML = "Ort";
     headerRow.appendChild(stationNameHeader);
+    var waterNameHeader = document.createElement("th");
+    waterNameHeader.innerHTML = "Fluß";
+    headerRow.appendChild(waterNameHeader);
     var kmHeader = document.createElement("th");
     kmHeader.innerHTML = "Km";
     headerRow.appendChild(kmHeader);
