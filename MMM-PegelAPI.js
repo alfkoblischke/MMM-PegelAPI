@@ -50,7 +50,7 @@ Module.register("MMM-PegelAPI", {
 
   getStationData: async function () {
     try {
-      const response = await fetch(this.url);
+      const response = await fetch(this.stationurl);
       const data = await response.json();            
       this.stationName = data['longname'];
       this.stationKm = data['km'];
