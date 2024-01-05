@@ -1,5 +1,5 @@
 # MagicMirror² PegelAPI module
-This is a module for `MagicMirror²`; the purpose of the module is to show you jokes from the JokeAPI.
+This is a module for `MagicMirror²`; the purpose of the module is to show you jokes from the PegelAPI.
 
 ## Installation
 1.  Navigate into your MagicMirror's modules folder and execute git clone https://github.com/alfkoblischke/MMM-PegelAPI.git. A new folder will appear navigate into it.
