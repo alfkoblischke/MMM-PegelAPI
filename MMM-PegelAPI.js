@@ -88,7 +88,7 @@ Module.register("MMM-PegelAPI", {
   },
   
   getHeader: function () {
-    return "Meine Pegelstände";
+    return "Meine Pegelstände in " + this.stationName + " am " + this.stationWater;
   },
 
   getDom: function () {
