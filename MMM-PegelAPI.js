@@ -73,13 +73,9 @@ Module.register("MMM-PegelAPI", {
     try {
       const stationResponse = await fetch(this.stationurl);
       const data = await stationResponse.json();            
-      this.stationName = data['longname'];
-      this.stationName = this.stationName.toLowerCase();
-      this.stationName = `${this.stationName.charAt(0).toUpperCase()}${this.stationName.slice(1)}`
+      this.stationName = data['longname'];     
       this.stationKm = data['km'];
-      this.stationWater = data['water']['longname'];
-      this.stationWater = this.stationWater.toLowerCase();
-      this.stationWater = `${this.stationWater.charAt(0).toUpperCase()}${this.stationWater.slice(1)}`;      
+      this.stationWater = data['water']['longname'];      
       this.loaded = true;
       this.updateDom();
     } catch (error) {
@@ -102,13 +98,7 @@ Module.register("MMM-PegelAPI", {
     }
 
     // Header Row
-    var headerRow = document.createElement("tr");
-    var stationNameHeader = document.createElement("th");
-    stationNameHeader.innerHTML = "Ort";
-    headerRow.appendChild(stationNameHeader);
-    var waterNameHeader = document.createElement("th");
-    waterNameHeader.innerHTML = "Fluss";
-    headerRow.appendChild(waterNameHeader);
+    var headerRow = document.createElement("tr");    
     var kmHeader = document.createElement("th");
     kmHeader.innerHTML = "Km";
     headerRow.appendChild(kmHeader);
@@ -122,16 +112,6 @@ Module.register("MMM-PegelAPI", {
 
     // 1 Data Row
     var row = document.createElement("tr");
-
-    // Pegel Name
-    var pegelName = document.createElement("td");
-    pegelName.innerHTML = this.stationName;
-    row.appendChild(pegelName);
-
-    // Water Name
-    var waterName = document.createElement("td");
-    waterName.innerHTML = this.stationWater;    
-    row.appendChild(waterName);
 
      // Pegel Km
     var pegelKm = document.createElement("td");
@@ -152,17 +132,7 @@ Module.register("MMM-PegelAPI", {
     wrapper.appendChild(row);
 
     // 2 Data Row
-    var row = document.createElement("tr");
-
-    // Pegel Name
-    var pegelName = document.createElement("td");
-    pegelName.innerHTML = this.stationName;
-    row.appendChild(pegelName);
-
-    // Water Name
-    var waterName = document.createElement("td");
-    waterName.innerHTML = this.stationWater;    
-    row.appendChild(waterName);
+    var row = document.createElement("tr");   
 
      // Pegel Km
     var pegelKm = document.createElement("td");
@@ -183,17 +153,7 @@ Module.register("MMM-PegelAPI", {
     wrapper.appendChild(row);
 
     // 3 Data Row
-    var row = document.createElement("tr");
-
-    // Pegel Name
-    var pegelName = document.createElement("td");
-    pegelName.innerHTML = this.stationName;
-    row.appendChild(pegelName);
-
-    // Water Name
-    var waterName = document.createElement("td");
-    waterName.innerHTML = this.stationWater;    
-    row.appendChild(waterName);
+    var row = document.createElement("tr");   
 
      // Pegel Km
     var pegelKm = document.createElement("td");
@@ -215,16 +175,6 @@ Module.register("MMM-PegelAPI", {
 
     // 4 Data Row
     var row = document.createElement("tr");
-
-    // Pegel Name
-    var pegelName = document.createElement("td");
-    pegelName.innerHTML = this.stationName;
-    row.appendChild(pegelName);
-
-    // Water Name
-    var waterName = document.createElement("td");
-    waterName.innerHTML = this.stationWater;    
-    row.appendChild(waterName);
 
      // Pegel Km
     var pegelKm = document.createElement("td");
