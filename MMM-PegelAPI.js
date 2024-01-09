@@ -119,17 +119,20 @@ Module.register("MMM-PegelAPI", {
      // Pegel Km
     var pegelKm = document.createElement("td");
     pegelKm.innerHTML = this.stationKm;
+    pegelKm.setAttribute("class", "km");
     row.appendChild(pegelKm);
 
     // Pegel Time
     var pegelTime = document.createElement("td");
     pegelTime.innerHTML = this.letzterPegelTime1;
+    pegelTime.setAttribute("class", "time");
     row.appendChild(pegelTime);
     
     // Pegel Height
     var pegelHeight = document.createElement("td");
     pegelHeight.innerHTML = this.letzterPegel1 <= this.letzterPegel2 ? this.letzterPegel1 + " cm 😊" : this.letzterPegel1 + " cm 😡";
     pegelHeight.style.color = this.letzterPegel1 < this.letzterPegel2 ? "green" : "red";
+    pegelHeight.setAttribute("class", "pegel");
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
@@ -140,17 +143,20 @@ Module.register("MMM-PegelAPI", {
      // Pegel Km
     var pegelKm = document.createElement("td");
     pegelKm.innerHTML = this.stationKm;
+    pegelKm.setAttribute("class", "km");
     row.appendChild(pegelKm);
 
     // Pegel Time
     var pegelTime = document.createElement("td");
     pegelTime.innerHTML = this.letzterPegelTime2;
+    pegelTime.setAttribute("class", "time");
     row.appendChild(pegelTime);
     
     // Pegel Height
     var pegelHeight = document.createElement("td");
     pegelHeight.innerHTML = this.letzterPegel2 <= this.letzterPegel3 ? this.letzterPegel2 + " cm 😊" : this.letzterPegel2 + " cm 😡";      
     pegelHeight.style.color = this.letzterPegel2 < this.letzterPegel3 ? "green" : "red";
+    pegelHeight.setAttribute("class", "pegel");
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
@@ -161,17 +167,20 @@ Module.register("MMM-PegelAPI", {
      // Pegel Km
     var pegelKm = document.createElement("td");
     pegelKm.innerHTML = this.stationKm;
+    pegelKm.setAttribute("class", "km");
     row.appendChild(pegelKm);
 
     // Pegel Time
     var pegelTime = document.createElement("td");
     pegelTime.innerHTML = this.letzterPegelTime3;
+    pegelTime.setAttribute("class", "time");
     row.appendChild(pegelTime);
     
     // Pegel Height
     var pegelHeight = document.createElement("td");
     pegelHeight.innerHTML = this.letzterPegel3 <= this.letzterPegel4 ? this.letzterPegel3 + " cm 😊" : this.letzterPegel3 + " cm 😡";      
     pegelHeight.style.color = this.letzterPegel3 < this.letzterPegel4 ? "green" : "red";
+    pegelHeight.setAttribute("class", "pegel");
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
@@ -182,17 +191,20 @@ Module.register("MMM-PegelAPI", {
      // Pegel Km
     var pegelKm = document.createElement("td");
     pegelKm.innerHTML = this.stationKm;
+    pegelKm.setAttribute("class", "km");
     row.appendChild(pegelKm);
 
     // Pegel Time
     var pegelTime = document.createElement("td");
     pegelTime.innerHTML = this.letzterPegelTime4;
+    pegelTime.setAttribute("class", "time");
     row.appendChild(pegelTime);
     
     // Pegel Height
     var pegelHeight = document.createElement("td");
     pegelHeight.innerHTML = this.letzterPegel4 <= this.letzterPegel5 ? this.letzterPegel4 + " cm 😊" : this.letzterPegel4 + " cm 😡";      
     pegelHeight.style.color = this.letzterPegel4 < this.letzterPegel5 ? "green" : "red";
+    pegelHeight.setAttribute("class", "pegel");
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);    
