@@ -7,7 +7,7 @@ Module.register("MMM-PegelAPI", {
   },
 
   getStyles: function () {
-    return ["style.css"];
+    return ["pegel.css"];
   },  
 
   // Override start method
