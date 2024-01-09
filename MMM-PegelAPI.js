@@ -101,12 +101,15 @@ Module.register("MMM-PegelAPI", {
     var headerRow = document.createElement("tr");    
     var kmHeader = document.createElement("th");
     kmHeader.innerHTML = "Km";
-    headerRow.appendChild(kmHeader);
+    kmHeader.setAttribute("class", "km");
+    headerRow.appendChild(kmHeader);    
     var timeHeader = document.createElement("th");
     timeHeader.innerHTML = "Uhrzeit";
+    timeHeader.setAttribute("class", "time");
     headerRow.appendChild(timeHeader);
     var pegelHeader = document.createElement("th");
     pegelHeader.innerHTML = "Pegel";
+    pegelHeader.setAttribute("class", "pegel");
     headerRow.appendChild(pegelHeader);
     wrapper.appendChild(headerRow);
 
