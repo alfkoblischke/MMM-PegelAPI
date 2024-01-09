@@ -208,7 +208,7 @@ Module.register("MMM-PegelAPI", {
     // Pegel Height
     var pegelHeight = document.createElement("td");
     pegelHeight.innerHTML = this.letzterPegel3 + " cm";
-    pegelHeight.style.color = this.letzterPegel4 < this.letzterPegel4 ? "green" : "red";
+    pegelHeight.style.color = this.letzterPegel3 < this.letzterPegel4 ? "green" : "red";
     row.appendChild(pegelHeight);
 
     wrapper.appendChild(row);
